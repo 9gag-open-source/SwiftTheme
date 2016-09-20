@@ -11,12 +11,12 @@
 </p>
 
 <p align="center">
-<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/language-swift2-f48041.svg?style=flat"></a>
+<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/language-swift3-f48041.svg?style=flat"></a>
 <a href="https://developer.apple.com/ios"><img src="https://img.shields.io/badge/platform-iOS%207%2B-blue.svg?style=flat"></a>
 <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"></a>
 <a href="http://cocoadocs.org/docsets/SwiftTheme"><img src="https://img.shields.io/badge/CocoaPods-compatible-4BC51D.svg?style=flat"></a>
 <a href="https://github.com/jiecao-fm/SwiftTheme/blob/master/LICENSE"><img src="http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat"></a>
-<a href="https://github.com/jiecao-fm/SwiftTheme/tree/0.2.1"><img src="https://img.shields.io/badge/release-0.2.1-blue.svg"></a>
+<a href="https://github.com/jiecao-fm/SwiftTheme/tree/0.3"><img src="https://img.shields.io/badge/release-0.3-blue.svg"></a>
 <a href="https://travis-ci.org/jiecao-fm/SwiftTheme"><img src="https://travis-ci.org/jiecao-fm/SwiftTheme.svg"></a>
 <a href="https://codebeat.co/projects/github-com-jiecao-fm-swifttheme"><img alt="codebeat badge" src="https://codebeat.co/badges/900eef02-9b88-46eb-8ce9-440c1dc31435" /></a>
 </p>
@@ -66,7 +66,7 @@ imageView.theme_image = ThemeImagePicker(names: "day", "night")
 ```swift
 // 这里的数字代表主题参数的索引
 // 例如 "ThemeColorPicker(colors: "#000", "#FFF")", 索引 0 代表 "#000", 索引 1 代表 "#FFF"
-ThemeManager.setTheme(isNight ? 1 : 0)
+ThemeManager.setTheme(index: isNight ? 1 : 0)
 ```
 
 想知道当前的索引？
@@ -93,7 +93,7 @@ imageView.theme_image = ThemeImagePicker(keyPath: "SelectedThemeCell.iconImage")
 切换主题时参数为`plist`名称，这里以`bundle`中的`plist`文件及资源文件为例，使用沙箱中的文件也是可以的。
 
 ```swift
-ThemeManager.setTheme("Red", path: .MainBundle)
+ThemeManager.setTheme(plistName: "Red", path: .MainBundle)
 ```
 
 > `plist`方式增加主题无需修改代码，可以无限扩展主题，因此你完全可以通过这种方式为你的用户开发下载安装主题的功能。
@@ -108,10 +108,10 @@ ThemeManager.setTheme("Red", path: .MainBundle)
 
 如果你想在切换主题时执行自定义任务，或者当`SwiftTheme`无法满足你的需求时，可以注册名为`ThemeUpdateNotification`的通知，你可以在任何地方观察这个通知，来实现自定义的行为：
 ```swift
-NSNotificationCenter.defaultCenter().addObserver(
+NSNotificationCenter.default.addObserver(
 	self, 
 	selector: #selector(doSomethingMethod),
-	name: ThemeUpdateNotification, 
+	name: NSNotification.Name(rawValue: ThemeUpdateNotification), 
 	object: nil
 )
 ```

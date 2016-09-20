@@ -20,7 +20,7 @@ class NavigationController: UINavigationController {
 
         updateTitleTextAttributes()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateTitleTextAttributes), name: ThemeUpdateNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTitleTextAttributes), name: NSNotification.Name(rawValue: ThemeUpdateNotification), object: nil)
     }
 
     func updateTitleTextAttributes() {
@@ -28,10 +28,10 @@ class NavigationController: UINavigationController {
             return
         }
 
-        let shadow = NSShadow(); shadow.shadowOffset = CGSizeZero
+        let shadow = NSShadow(); shadow.shadowOffset = CGSize.zero
         let titleTextAttributes = [
             NSForegroundColorAttributeName: color,
-            NSFontAttributeName: UIFont.systemFontOfSize(16),
+            NSFontAttributeName: UIFont.systemFont(ofSize: 16),
             NSShadowAttributeName: shadow
         ]
         

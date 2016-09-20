@@ -10,27 +10,27 @@ import Foundation
 
 enum MyThemes: Int {
     
-    case Red   = 0
-    case Yello = 1
-    case Blue  = 2
-    case Night = 3
+    case red   = 0
+    case yello = 1
+    case blue  = 2
+    case night = 3
     
     // MARK: -
     
-    static var current = MyThemes.Red
-    static var before  = MyThemes.Red
+    static var current = MyThemes.red
+    static var before  = MyThemes.red
     
     // MARK: - Switch Theme
     
-    static func switchTo(theme: MyThemes) {
+    static func switchTo(_ theme: MyThemes) {
         before  = current
         current = theme
         
         switch theme {
-        case .Red   : ThemeManager.setTheme("Red", path: .MainBundle)
-        case .Yello : ThemeManager.setTheme("Yellow", path: .MainBundle)
-        case .Blue  : ThemeManager.setTheme("Blue", path: .Sandbox(blueDiretory))
-        case .Night : ThemeManager.setTheme("Night", path: .MainBundle)
+        case .red   : ThemeManager.setTheme(plistName: "Red", path: .mainBundle)
+        case .yello : ThemeManager.setTheme(plistName: "Yellow", path: .mainBundle)
+        case .blue  : ThemeManager.setTheme(plistName: "Blue", path: .sandbox(blueDiretory))
+        case .night : ThemeManager.setTheme(plistName: "Night", path: .mainBundle)
         }
     }
     
@@ -46,53 +46,53 @@ enum MyThemes: Int {
     
     // MARK: - Switch Night
     
-    static func switchNight(isToNight: Bool) {
-        switchTo(isToNight ? .Night : before)
+    static func switchNight(_ isToNight: Bool) {
+        switchTo(isToNight ? .night : before)
     }
     
     static func isNight() -> Bool {
-        return current == .Night
+        return current == .night
     }
     
     // MARK: - Download
     
-    static func downloadBlueTask(handler: (isSuccess: Bool) -> Void) {
+    static func downloadBlueTask(_ handler: @escaping (_ isSuccess: Bool) -> Void) {
         
-        let session = NSURLSession.sharedSession()
+        let session = URLSession.shared
         let url = "https://github.com/jiecao-fm/SwiftThemeResources/blob/master/20160315/Blue.zip?raw=true"
-        let URL = NSURL(string: url)
+        let URL = Foundation.URL(string: url)
         
-        let task = session.downloadTaskWithURL(URL!) { location, response, error in
+        let task = session.downloadTask(with: URL!, completionHandler: { location, response, error in
             
-            guard let location = location where error == nil else {
-                dispatch_async(dispatch_get_main_queue()) {
-                    handler(isSuccess: false)
+            guard let location = location , error == nil else {
+                DispatchQueue.main.async {
+                    handler(false)
                 }
                 return
             }
             
-            let manager = NSFileManager.defaultManager()
-            let zipPath = cachesURL.URLByAppendingPathComponent("Blue.zip")
+            let manager = FileManager.default
+            let zipPath = cachesURL.appendingPathComponent("Blue.zip")
             
-            _ = try? manager.removeItemAtURL(zipPath)
-            _ = try? manager.moveItemAtURL(location, toURL: zipPath)
+            _ = try? manager.removeItem(at: zipPath)
+            _ = try? manager.moveItem(at: location, to: zipPath)
             
-            let isSuccess = SSZipArchive.unzipFileAtPath(zipPath.path,
+            let isSuccess = SSZipArchive.unzipFile(atPath: zipPath.path,
                                         toDestination: unzipPath.path)
             
-            dispatch_async(dispatch_get_main_queue()) {
-                handler(isSuccess: isSuccess)
+            DispatchQueue.main.async {
+                handler(isSuccess)
             }
-        }
+        }) 
         
         task.resume()
     }
     
     static func isBlueThemeExist() -> Bool {
-        return NSFileManager.defaultManager().fileExistsAtPath(blueDiretory.path!)
+        return FileManager.default.fileExists(atPath: blueDiretory.path)
     }
     
-    static let blueDiretory : NSURL = unzipPath.URLByAppendingPathComponent("Blue/")
-    static let unzipPath    : NSURL = libraryURL.URLByAppendingPathComponent("Themes/20160315")
+    static let blueDiretory : URL = unzipPath.appendingPathComponent("Blue/")
+    static let unzipPath    : URL = libraryURL.appendingPathComponent("Themes/20160315")
     
 }

@@ -9,20 +9,20 @@
 import Foundation
 
 
-let cachesURL = NSFileManager.defaultManager().URLsForDirectory(.CachesDirectory, inDomains: .UserDomainMask)[0]
-let libraryURL = NSFileManager.defaultManager().URLsForDirectory(.LibraryDirectory, inDomains: .UserDomainMask)[0]
+let cachesURL = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)[0]
+let libraryURL = FileManager.default.urls(for: .libraryDirectory, in: .userDomainMask)[0]
 
 
 extension MBProgressHUD {
 
-    class func showHUD(text: String) -> MBProgressHUD {
-        let view = UIApplication.sharedApplication().windows.last
+    class func showHUD(_ text: String) -> MBProgressHUD {
+        let view = UIApplication.shared.windows.last
         
-        let HUD = MBProgressHUD.showHUDAddedTo(view, animated: true)
-        HUD.labelText = text
-        HUD.removeFromSuperViewOnHide = true
-        HUD.dimBackground = false
-        return HUD
+        let HUD = MBProgressHUD.showAdded(to: view, animated: true)
+        HUD?.labelText = text
+        HUD?.removeFromSuperViewOnHide = true
+        HUD?.dimBackground = false
+        return HUD!
     }
     
 }

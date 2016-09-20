@@ -25,7 +25,7 @@ extension UIView
 }
 extension UIApplication
 {
-    public func theme_setStatusBarStyle(picker: ThemeStatusBarStylePicker, animated: Bool) {
+    public func theme_setStatusBarStyle(_ picker: ThemeStatusBarStylePicker, animated: Bool) {
         picker.animated = animated
         setThemePicker(self, "setStatusBarStyle:animated:", picker)
     }
@@ -162,15 +162,15 @@ extension UIImageView
 }
 extension UIButton
 {
-    public func theme_setImage(picker: ThemeImagePicker?, forState state: UIControlState) {
+    public func theme_setImage(_ picker: ThemeImagePicker?, forState state: UIControlState) {
         let statePicker = makeStatePicker(self, "setImage:forState:", picker, state)
         setThemePicker(self, "setImage:forState:", statePicker)
     }
-    public func theme_setBackgroundImage(picker: ThemeImagePicker?, forState state: UIControlState) {
+    public func theme_setBackgroundImage(_ picker: ThemeImagePicker?, forState state: UIControlState) {
         let statePicker = makeStatePicker(self, "setBackgroundImage:forState:", picker, state)
         setThemePicker(self, "setBackgroundImage:forState:", statePicker)
     }
-    public func theme_setTitleColor(picker: ThemeColorPicker?, forState state: UIControlState) {
+    public func theme_setTitleColor(_ picker: ThemeColorPicker?, forState state: UIControlState) {
         let statePicker = makeStatePicker(self, "setTitleColor:forState:", picker, state)
         setThemePicker(self, "setTitleColor:forState:", statePicker)
     }
@@ -192,23 +192,23 @@ extension CALayer
 }
 
 private func getThemePicker(
-      object : NSObject,
+    _ object : NSObject,
     _ selector : String
 ) -> ThemePicker? {
     return object.themePickers[selector]
 }
 
 private func setThemePicker(
-      object : NSObject,
+    _ object : NSObject,
     _ selector : String,
     _ picker : ThemePicker?
 ) {
     object.themePickers[selector] = picker
-    object.performThemePicker(selector, picker: picker)
+    object.performThemePicker(selector: selector, picker: picker)
 }
 
 private func makeStatePicker(
-      object : NSObject,
+    _ object : NSObject,
     _ selector : String,
     _ picker : ThemePicker?,
     _ state : UIControlState

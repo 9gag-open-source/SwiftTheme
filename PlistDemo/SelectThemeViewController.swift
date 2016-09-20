@@ -16,15 +16,15 @@ class SelectThemeViewController: UIViewController, UIAlertViewDelegate {
         view.theme_backgroundColor = globalBackgroundColorPicker
     }
     
-    @IBAction func tapRed(sender: AnyObject) {
-        MyThemes.switchTo(.Red)
+    @IBAction func tapRed(_ sender: AnyObject) {
+        MyThemes.switchTo(.red)
     }
     
-    @IBAction func tapYellow(sender: AnyObject) {
-        MyThemes.switchTo(.Yello)
+    @IBAction func tapYellow(_ sender: AnyObject) {
+        MyThemes.switchTo(.yello)
     }
     
-    @IBAction func tapBlue(sender: AnyObject) {
+    @IBAction func tapBlue(_ sender: AnyObject) {
         guard MyThemes.isBlueThemeExist() else {
 
             let title   = "Not Downloaded"
@@ -34,22 +34,22 @@ class SelectThemeViewController: UIViewController, UIAlertViewDelegate {
                 
                 let alert = UIAlertController(title: title,
                                               message: message,
-                                              preferredStyle: .Alert)
+                                              preferredStyle: .alert)
 
                 alert.addAction(UIAlertAction(
                     title: "Cancel",
-                    style: .Cancel,
+                    style: .cancel,
                     handler: nil)
                 )
                 alert.addAction(UIAlertAction(
                     title: "Sure",
-                    style: .Default,
+                    style: .default,
                     handler: { [unowned self] _ in
                         self.downloadStart()
                     })
                 )
                 
-                presentViewController(alert, animated: true, completion: nil)
+                present(alert, animated: true, completion: nil)
                 
             } else {
                 
@@ -63,25 +63,25 @@ class SelectThemeViewController: UIViewController, UIAlertViewDelegate {
             return
         }
         
-        MyThemes.switchTo(.Blue)
+        MyThemes.switchTo(.blue)
     }
     
-    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+    func alertView(_ alertView: UIAlertView, clickedButtonAt buttonIndex: Int) {
         if buttonIndex == 1 {
             downloadStart()
         }
     }
     
-    private func downloadStart() {
+    fileprivate func downloadStart() {
         let HUD = MBProgressHUD.showHUD("Download Theme...")
         
         MyThemes.downloadBlueTask() { isSuccess in
             HUD.labelText = isSuccess ? "Successful!" : "Failure!"
-            HUD.mode = .Text
+            HUD.mode = .text
             HUD.hide(true, afterDelay: 1)
             
             if isSuccess {
-                MyThemes.switchTo(.Blue)
+                MyThemes.switchTo(.blue)
             }
         }
     }

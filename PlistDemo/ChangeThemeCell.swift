@@ -19,13 +19,13 @@ class ChangeThemeCell: BaseCell {
         let titlePicker2 = ThemeColorPicker(keyPath: "ChangeThemeCell.buttonTitleColorHighlighted")
         let backgroundPicker = ThemeColorPicker(keyPath: "ChangeThemeCell.buttonBackgroundColor")
         
-        changeTheme.theme_setTitleColor(titlePicker1, forState: .Normal)
-        changeTheme.theme_setTitleColor(titlePicker2, forState: .Highlighted)
+        changeTheme.theme_setTitleColor(titlePicker1, forState: UIControlState())
+        changeTheme.theme_setTitleColor(titlePicker2, forState: .highlighted)
         changeTheme.theme_backgroundColor = backgroundPicker
         changeTheme.layer.cornerRadius = changeTheme.bounds.size.width / 2
     }
     
-    @IBAction func tapChange(sender: UIButton) {
+    @IBAction func tapChange(_ sender: UIButton) {
         MyThemes.switchToNext()
     }
 

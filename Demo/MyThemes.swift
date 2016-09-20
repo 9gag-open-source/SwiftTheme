@@ -9,7 +9,7 @@
 import Foundation
 
 private let lastThemeIndexKey = "lastedThemeIndex"
-private let defaults = NSUserDefaults.standardUserDefaults()
+private let defaults = UserDefaults.standard
 
 enum MyThemes: Int {
     
@@ -27,19 +27,19 @@ enum MyThemes: Int {
     
     static func switchTo(theme: MyThemes) {
         before = current
-        ThemeManager.setTheme(theme.rawValue)
+        ThemeManager.setTheme(index: theme.rawValue)
     }
     
     static func switchToNext() {
         var next = ThemeManager.currentThemeIndex + 1
         if next > 2 { next = 0 } // cycle and without Night
-        switchTo(MyThemes(rawValue: next)!)
+        switchTo(theme: MyThemes(rawValue: next)!)
     }
     
     // MARK: - Switch Night
     
     static func switchNight(isToNight: Bool) {
-        switchTo(isToNight ? .Night : before)
+        switchTo(theme: isToNight ? .Night : before)
     }
     
     static func isNight() -> Bool {
@@ -49,11 +49,11 @@ enum MyThemes: Int {
     // MARK: - Save & Restore
     
     static func restoreLastTheme() {
-        switchTo(MyThemes(rawValue: defaults.integerForKey(lastThemeIndexKey))!)
+        switchTo(theme: MyThemes(rawValue: defaults.integer(forKey: lastThemeIndexKey))!)
     }
     
     static func saveLastTheme() {
-        defaults.setInteger(ThemeManager.currentThemeIndex, forKey: lastThemeIndexKey)
+        defaults.set(ThemeManager.currentThemeIndex, forKey: lastThemeIndexKey)
     }
     
 }

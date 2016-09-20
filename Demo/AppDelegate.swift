@@ -13,23 +13,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func application(_ application:UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
         
         MyThemes.restoreLastTheme()
         
         // status bar
         
-        let statusPicker = ThemeStatusBarStylePicker(styles: .LightContent, .Default, .LightContent, .LightContent)
-        UIApplication.sharedApplication().theme_setStatusBarStyle(statusPicker, animated: true)
+        let statusPicker = ThemeStatusBarStylePicker(styles: .lightContent, .default, .lightContent, .lightContent)
+        UIApplication.shared.theme_setStatusBarStyle(statusPicker, animated: true)
         
         // navigation bar
 
         let navigationBar = UINavigationBar.appearance()
-        let shadow = NSShadow(); shadow.shadowOffset = CGSizeZero
+        let shadow = NSShadow()
+            shadow.shadowOffset = CGSize(width: 0, height: 0)
         let titleAttributes: [[String: AnyObject]] = globalBarTextColors.map { hexString in
             return [
                 NSForegroundColorAttributeName: UIColor(rgba: hexString),
-                NSFontAttributeName: UIFont.systemFontOfSize(16),
+                NSFontAttributeName: UIFont.systemFont(ofSize: 16),
                 NSShadowAttributeName: shadow
             ]
         }
@@ -47,15 +48,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    func applicationWillResignActive(application: UIApplication) { }
+    func applicationWillResignActive(_ application: UIApplication) { }
 
-    func applicationDidEnterBackground(application: UIApplication) { }
+    func applicationDidEnterBackground(_ application: UIApplication) { }
 
-    func applicationWillEnterForeground(application: UIApplication) { }
+    func applicationWillEnterForeground(_ application: UIApplication) { }
 
-    func applicationDidBecomeActive(application: UIApplication) { }
+    func applicationDidBecomeActive(_ application: UIApplication) { }
 
-    func applicationWillTerminate(application: UIApplication) {
+    func applicationWillTerminate(_ application: UIApplication) {
         MyThemes.saveLastTheme()
     }
 

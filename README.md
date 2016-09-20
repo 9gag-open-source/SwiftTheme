@@ -11,12 +11,12 @@
 </p>
 
 <p align="center">
-<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/language-swift2-f48041.svg?style=flat"></a>
+<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/language-swift3-f48041.svg?style=flat"></a>
 <a href="https://developer.apple.com/ios"><img src="https://img.shields.io/badge/platform-iOS%207%2B-blue.svg?style=flat"></a>
 <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat"></a>
 <a href="http://cocoadocs.org/docsets/SwiftTheme"><img src="https://img.shields.io/badge/CocoaPods-compatible-4BC51D.svg?style=flat"></a>
 <a href="https://github.com/jiecao-fm/SwiftTheme/blob/master/LICENSE"><img src="http://img.shields.io/badge/license-MIT-lightgrey.svg?style=flat"></a>
-<a href="https://github.com/jiecao-fm/SwiftTheme/tree/0.2.1"><img src="https://img.shields.io/badge/release-0.2.1-blue.svg"></a>
+<a href="https://github.com/jiecao-fm/SwiftTheme/tree/0.3"><img src="https://img.shields.io/badge/release-0.3-blue.svg"></a>
 <a href="https://travis-ci.org/jiecao-fm/SwiftTheme"><img src="https://travis-ci.org/jiecao-fm/SwiftTheme.svg"></a>
 <a href="https://codebeat.co/projects/github-com-jiecao-fm-swifttheme"><img alt="codebeat badge" src="https://codebeat.co/badges/900eef02-9b88-46eb-8ce9-440c1dc31435" /></a>
 </p>
@@ -69,7 +69,7 @@ No problem! A miracle happens after you executing the one line of code below!
 ```swift
 // these numbers represent the parameters' index. 
 // eg. "ThemeColorPicker(colors: "#000", "#FFF")", index 0 represents "#000", index 1 represents "#FFF"
-ThemeManager.setTheme(isNight ? 1 : 0)
+ThemeManager.setTheme(index: isNight ? 1 : 0)
 ```
 
 Then, get the current theme index.
@@ -96,7 +96,7 @@ imageView.theme_image = ThemeImagePicker(keyPath: "SelectedThemeCell.iconImage")
 The plist file name is the first paramter of the switching method. In this example, the plist file and other resource files are in the application bundle. It's also ok if they are in sandbox.
 
 ```swift
-ThemeManager.setTheme("Red", path: .MainBundle)
+ThemeManager.setTheme(plistName: "Red", path: .MainBundle)
 ```
 
 > plist mode allow you install more themes without modifying logic code. So, you can add the feature that, downloading and installing themes for your app.
@@ -178,27 +178,27 @@ When you switch themes, all the `theme_` properties you set will update with ani
 
 ```swift
 ①
-ThemeManager.setTheme(0) // ThemePickers will use the first parameter, eg. "#FFF" "day"
-ThemeManager.setTheme(1) // ThemePickers will use the second parameter, eg. "#000" "night"
+ThemeManager.setTheme(index: 0) // ThemePickers will use the first parameter, eg. "#FFF" "day"
+ThemeManager.setTheme(index: 1) // ThemePickers will use the second parameter, eg. "#000" "night"
 ②
 // use "day.plist" in the appllication bundle as the theme configuration file. 
 // In this mode, SwiftTheme will find the resource files in the appllication bundle.
-ThemeManager.setTheme("day", path: .MainBundle)
+ThemeManager.setTheme(plistName: "day", path: .MainBundle)
 // use "night.plist" in the sandbox as the theme configuration file, "someURL" is its file path. 
 // In this mode, SwiftTheme will find the resource files in the same path.
-ThemeManager.setTheme("night", path: .Sandbox(someURL))
+ThemeManager.setTheme(plistName: "night", path: .Sandbox(someURL))
 // use a dictionary as the theme configuration, but find resource files in the sandbox.(Not recommend)
-ThemeManager.setTheme(dict, path: .Sandbox(someURL))
+ThemeManager.setTheme(dict: dict, path: .Sandbox(someURL))
 ```
 
 #### Custom Behaviors
 
 SwiftTheme posts a notification named `ThemeUpdateNotification` when theme changes, you can observe this notification anywhere and do whatever you want:
 ```swift
-NSNotificationCenter.defaultCenter().addObserver(
+NotificationCenter.default.addObserver(
 	self, 
 	selector: #selector(doSomethingMethod),
-	name: ThemeUpdateNotification, 
+	name: NSNotification.Name(rawValue: ThemeUpdateNotification), 
 	object: nil
 )
 ```

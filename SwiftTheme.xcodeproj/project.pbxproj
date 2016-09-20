@@ -73,6 +73,18 @@
 		A34AD0871CF7E3E300B54F53 /* SelectThemeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A34AD0861CF7E3E300B54F53 /* SelectThemeViewController.m */; };
 		A34AD0881CF7E5A000B54F53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A34AD0591CF6A7A900B54F53 /* Main.storyboard */; };
 		A368D4C31CF7ECDA0016F62A /* ChangeThemeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A34AD0831CF7E29900B54F53 /* ChangeThemeCell.m */; };
+		A3A389991D8E2F2800797F17 /* ThemeManager+OC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A389981D8E2F2800797F17 /* ThemeManager+OC.swift */; };
+		A3A3899B1D8E2F7900797F17 /* ThemeManager+Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3899A1D8E2F7900797F17 /* ThemeManager+Index.swift */; };
+		A3A3899D1D8E2FB200797F17 /* ThemeManager+Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3899C1D8E2FB200797F17 /* ThemeManager+Plist.swift */; };
+		A3A3899E1D8E305800797F17 /* ThemeManager+OC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A389981D8E2F2800797F17 /* ThemeManager+OC.swift */; };
+		A3A3899F1D8E305800797F17 /* ThemeManager+OC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A389981D8E2F2800797F17 /* ThemeManager+OC.swift */; };
+		A3A389A01D8E305900797F17 /* ThemeManager+OC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A389981D8E2F2800797F17 /* ThemeManager+OC.swift */; };
+		A3A389A11D8E305B00797F17 /* ThemeManager+Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3899A1D8E2F7900797F17 /* ThemeManager+Index.swift */; };
+		A3A389A21D8E305B00797F17 /* ThemeManager+Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3899A1D8E2F7900797F17 /* ThemeManager+Index.swift */; };
+		A3A389A31D8E305C00797F17 /* ThemeManager+Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3899A1D8E2F7900797F17 /* ThemeManager+Index.swift */; };
+		A3A389A41D8E305E00797F17 /* ThemeManager+Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3899C1D8E2FB200797F17 /* ThemeManager+Plist.swift */; };
+		A3A389A51D8E305E00797F17 /* ThemeManager+Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3899C1D8E2FB200797F17 /* ThemeManager+Plist.swift */; };
+		A3A389A61D8E305E00797F17 /* ThemeManager+Plist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A3899C1D8E2FB200797F17 /* ThemeManager+Plist.swift */; };
 		B3405FA6AAA1F26EBDA63620 /* libPods-SwiftTheme.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D9EA2683344B1FA2E7553A18 /* libPods-SwiftTheme.a */; };
 		BF7C00D046C63F5919357B2A /* libPods-Demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 93F20E6BF028F63DFA7AB48C /* libPods-Demo.a */; };
 /* End PBXBuildFile section */
@@ -152,6 +164,9 @@
 		A34AD0831CF7E29900B54F53 /* ChangeThemeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeThemeCell.m; sourceTree = "<group>"; };
 		A34AD0851CF7E3E300B54F53 /* SelectThemeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectThemeViewController.h; sourceTree = "<group>"; };
 		A34AD0861CF7E3E300B54F53 /* SelectThemeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectThemeViewController.m; sourceTree = "<group>"; };
+		A3A389981D8E2F2800797F17 /* ThemeManager+OC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ThemeManager+OC.swift"; sourceTree = "<group>"; };
+		A3A3899A1D8E2F7900797F17 /* ThemeManager+Index.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ThemeManager+Index.swift"; sourceTree = "<group>"; };
+		A3A3899C1D8E2FB200797F17 /* ThemeManager+Plist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ThemeManager+Plist.swift"; sourceTree = "<group>"; };
 		A3EF94C91CEC29FD0068F86C /* PlistDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PlistDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		ADF2E15BBF38F3DF9EF2C974 /* Pods-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-Demo/Pods-Demo.release.xcconfig"; sourceTree = "<group>"; };
 		D9EA2683344B1FA2E7553A18 /* libPods-SwiftTheme.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SwiftTheme.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -343,6 +358,9 @@
 			isa = PBXGroup;
 			children = (
 				18D642E01C53638200DADEC5 /* ThemeManager.swift */,
+				A3A389981D8E2F2800797F17 /* ThemeManager+OC.swift */,
+				A3A3899A1D8E2F7900797F17 /* ThemeManager+Index.swift */,
+				A3A3899C1D8E2FB200797F17 /* ThemeManager+Plist.swift */,
 				187C0D1D1C562AC00000FA89 /* ThemePicker.swift */,
 				18D642E11C53638200DADEC5 /* UIColorExtension.swift */,
 				18D642E21C53638200DADEC5 /* UIKit+Theme.swift */,
@@ -527,20 +545,24 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Gesen;
 				TargetAttributes = {
 					186C86391C857AA900A5FFEA = {
 						CreatedOnToolsVersion = 7.2.1;
+						LastSwiftMigration = 0800;
 					};
 					18D642AC1C53613400DADEC5 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 					};
 					18D642BB1C53615300DADEC5 = {
 						CreatedOnToolsVersion = 7.2;
+						LastSwiftMigration = 0800;
 					};
 					A34AD04D1CF6A7A900B54F53 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -740,6 +762,7 @@
 				186C864F1C857B0600A5FFEA /* UIKit+Theme.swift in Sources */,
 				186C864E1C857B0400A5FFEA /* UIColorExtension.swift in Sources */,
 				186C86501C857B0800A5FFEA /* NSObject+Theme.swift in Sources */,
+				A3A389A21D8E305B00797F17 /* ThemeManager+Index.swift in Sources */,
 				1854EB661C96601E00E865C6 /* SelectThemeCell.swift in Sources */,
 				1854EB751C9667F700E865C6 /* Global.swift in Sources */,
 				1854EB631C96601E00E865C6 /* AboutCell.swift in Sources */,
@@ -751,8 +774,10 @@
 				186C863D1C857AA900A5FFEA /* AppDelegate.swift in Sources */,
 				1854EB7B1C96895700E865C6 /* MyThemes.swift in Sources */,
 				1854EB651C96601E00E865C6 /* ListViewController.swift in Sources */,
+				A3A389A51D8E305E00797F17 /* ThemeManager+Plist.swift in Sources */,
 				1854EB7D1C9689C600E865C6 /* BaseCell.swift in Sources */,
 				186C864C1C857AFF00A5FFEA /* ThemeManager.swift in Sources */,
+				A3A3899F1D8E305800797F17 /* ThemeManager+OC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -760,11 +785,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3A3899D1D8E2FB200797F17 /* ThemeManager+Plist.swift in Sources */,
 				18D642EA1C53638200DADEC5 /* NSObject+Theme.swift in Sources */,
 				18D642E41C53638200DADEC5 /* ThemeManager.swift in Sources */,
 				18D642E61C53638200DADEC5 /* UIColorExtension.swift in Sources */,
 				187C0D1E1C562AC00000FA89 /* ThemePicker.swift in Sources */,
+				A3A3899B1D8E2F7900797F17 /* ThemeManager+Index.swift in Sources */,
 				18D642E81C53638200DADEC5 /* UIKit+Theme.swift in Sources */,
+				A3A389991D8E2F2800797F17 /* ThemeManager+OC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -776,6 +804,7 @@
 				18D642E91C53638200DADEC5 /* UIKit+Theme.swift in Sources */,
 				187C0D1F1C562AC00000FA89 /* ThemePicker.swift in Sources */,
 				186C865C1C8683BC00A5FFEA /* ChangeThemeCell.swift in Sources */,
+				A3A389A11D8E305B00797F17 /* ThemeManager+Index.swift in Sources */,
 				186C865A1C85A6D600A5FFEA /* Global.swift in Sources */,
 				18D642EB1C53638200DADEC5 /* NSObject+Theme.swift in Sources */,
 				186C865E1C8684B300A5FFEA /* SelectThemeCell.swift in Sources */,
@@ -783,6 +812,8 @@
 				18D642E51C53638200DADEC5 /* ThemeManager.swift in Sources */,
 				186C86641C86C1C400A5FFEA /* AboutCell.swift in Sources */,
 				186C86561C85A10A00A5FFEA /* ListViewController.swift in Sources */,
+				A3A389A41D8E305E00797F17 /* ThemeManager+Plist.swift in Sources */,
+				A3A3899E1D8E305800797F17 /* ThemeManager+OC.swift in Sources */,
 				1854EB771C9670AB00E865C6 /* MyThemes.swift in Sources */,
 				186C86581C85A13000A5FFEA /* SelectThemeViewController.swift in Sources */,
 				1854EB791C96888D00E865C6 /* BaseCell.swift in Sources */,
@@ -798,6 +829,7 @@
 				A34AD06F1CF6FE0900B54F53 /* UIKit+Theme.swift in Sources */,
 				A34AD0701CF6FE0B00B54F53 /* NSObject+Theme.swift in Sources */,
 				A34AD0781CF7096100B54F53 /* BaseCell.m in Sources */,
+				A3A389A31D8E305C00797F17 /* ThemeManager+Index.swift in Sources */,
 				A34AD0751CF708CD00B54F53 /* ListViewController.m in Sources */,
 				A34AD06E1CF6FE0700B54F53 /* UIColorExtension.swift in Sources */,
 				A34AD06B1CF6F83E00B54F53 /* MyThemes.m in Sources */,
@@ -805,6 +837,8 @@
 				A34AD07B1CF7099800B54F53 /* AboutCell.m in Sources */,
 				A34AD06C1CF6FE0200B54F53 /* ThemeManager.swift in Sources */,
 				A368D4C31CF7ECDA0016F62A /* ChangeThemeCell.m in Sources */,
+				A3A389A61D8E305E00797F17 /* ThemeManager+Plist.swift in Sources */,
+				A3A389A01D8E305900797F17 /* ThemeManager+OC.swift in Sources */,
 				A34AD06D1CF6FE0400B54F53 /* ThemePicker.swift in Sources */,
 				A34AD0551CF6A7A900B54F53 /* AppDelegate.m in Sources */,
 				A34AD0521CF6A7A900B54F53 /* main.m in Sources */,
@@ -877,13 +911,14 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = PlistDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = me.gesen.PlistDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PlistDemo/PlistDemo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -898,12 +933,13 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = PlistDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = me.gesen.PlistDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "PlistDemo/PlistDemo-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -920,8 +956,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -968,8 +1006,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -989,6 +1029,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -1001,6 +1042,7 @@
 			baseConfigurationReference = 10C20000AA6D207DB45519EB /* Pods-SwiftTheme.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1013,6 +1055,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1021,6 +1064,7 @@
 			baseConfigurationReference = 559F74E961CA8E15657FD04A /* Pods-SwiftTheme.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1032,6 +1076,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = me.gesen.SwiftTheme;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -1041,10 +1086,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.gesen.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -1054,40 +1100,43 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Demo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.gesen.Demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
 		A34AD0621CF6A7A900B54F53 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				INFOPLIST_FILE = OCDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = me.gesen.OCDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		A34AD0631CF6A7A900B54F53 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = NO;
 				INFOPLIST_FILE = OCDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = me.gesen.OCDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

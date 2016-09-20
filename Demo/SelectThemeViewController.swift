@@ -16,16 +16,16 @@ class SelectThemeViewController: UIViewController {
         view.theme_backgroundColor = globalBackgroundColorPicker
     }
     
-    @IBAction func tapRed(sender: AnyObject) {
-        MyThemes.switchTo(.Red)
+    @IBAction @objc(tapRed:) func tapRed(_ sender: AnyObject) {
+        MyThemes.switchTo(theme: .Red)
     }
     
-    @IBAction func tapYellow(sender: AnyObject) {
-        MyThemes.switchTo(.Yello)
+    @IBAction @objc func tapYellow(_ sender: AnyObject) {
+        MyThemes.switchTo(theme: .Yello)
     }
     
-    @IBAction func tapBlue(sender: AnyObject) {
-        MyThemes.switchTo(.Blue)
+    @IBAction func tapBlue(_ sender: AnyObject) {
+        MyThemes.switchTo(theme: .Blue)
     }
 
 }

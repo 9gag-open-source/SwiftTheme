@@ -30,59 +30,60 @@ extension NSObject {
     
     func performThemePicker(selector: String, picker: ThemePicker?) {
         let sel = Selector(selector)
-        let methodSignature = self.methodForSelector(sel)
-        guard respondsToSelector(sel)     else { return }
+        let methodSignature = self.method(for: sel)
+        guard responds(to: sel)     else { return }
         guard let value = picker?.value() else { return }
         
         if let statePicker = picker as? ThemeStatePicker {
-            let setState = unsafeBitCast(methodSignature, setValueForStateIMP.self)
-            statePicker.values.forEach { setState(self, sel, $1.value()!, UIControlState(rawValue: $0)) }
+            let setState = unsafeBitCast(methodSignature, to: setValueForStateIMP.self)
+            statePicker.values.forEach { setState(self, sel, $1.value()! as AnyObject, UIControlState(rawValue: $0)) }
         }
             
         else if let statusBarStylePicker = picker as? ThemeStatusBarStylePicker {
-            let setStatusBarStyle = unsafeBitCast(methodSignature, setStatusBarStyleValueIMP.self)
-            setStatusBarStyle(self, sel, statusBarStylePicker.currentStyle(value), statusBarStylePicker.animated)
+            let setStatusBarStyle = unsafeBitCast(methodSignature, to: setStatusBarStyleValueIMP.self)
+            setStatusBarStyle(self, sel, statusBarStylePicker.currentStyle(value as AnyObject?), statusBarStylePicker.animated)
+            
         }
         
         else if picker is ThemeCGFloatPicker {
-            let setCGFloat = unsafeBitCast(methodSignature, setCGFloatValueIMP.self)
+            let setCGFloat = unsafeBitCast(methodSignature, to: setCGFloatValueIMP.self)
             setCGFloat(self, sel, value as! CGFloat)
         }
         
         else if picker is ThemeCGColorPicker {
-            let setCGColor = unsafeBitCast(methodSignature, setCGColorValueIMP.self)
+            let setCGColor = unsafeBitCast(methodSignature, to: setCGColorValueIMP.self)
             setCGColor(self, sel, value as! CGColor)
         }
         
-        else { performSelector(sel, withObject: value) }
+        else { perform(sel, with: value) }
     }
     
-    private typealias setCGColorValueIMP        = @convention(c) (NSObject, Selector, CGColor) -> Void
-    private typealias setCGFloatValueIMP        = @convention(c) (NSObject, Selector, CGFloat) -> Void
-    private typealias setValueForStateIMP       = @convention(c) (NSObject, Selector, AnyObject, UIControlState) -> Void
-    private typealias setStatusBarStyleValueIMP = @convention(c) (NSObject, Selector, UIStatusBarStyle, Bool) -> Void
+    fileprivate typealias setCGColorValueIMP        = @convention(c) (NSObject, Selector, CGColor) -> Void
+    fileprivate typealias setCGFloatValueIMP        = @convention(c) (NSObject, Selector, CGFloat) -> Void
+    fileprivate typealias setValueForStateIMP       = @convention(c) (NSObject, Selector, AnyObject, UIControlState) -> Void
+    fileprivate typealias setStatusBarStyleValueIMP = @convention(c) (NSObject, Selector, UIStatusBarStyle, Bool) -> Void
     
 }
 
 extension NSObject {
     
-    private func _setupThemeNotification() {
+    fileprivate func _setupThemeNotification() {
         if #available(iOS 9.0, *) {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(_updateTheme), name: ThemeUpdateNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(_updateTheme), name: NSNotification.Name(rawValue: ThemeUpdateNotification), object: nil)
         } else {
-            NSNotificationCenter.defaultCenter().addObserverForName(ThemeUpdateNotification, object: nil, queue: nil, usingBlock: { [weak self] notification in self?._updateTheme() })
+            NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: ThemeUpdateNotification), object: nil, queue: nil, using: { [weak self] notification in self?._updateTheme() })
         }
     }
     
-    private func _removeThemeNotification() {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: ThemeUpdateNotification, object: nil)
+    fileprivate func _removeThemeNotification() {
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: ThemeUpdateNotification), object: nil)
     }
     
     @objc private func _updateTheme() {
         themePickers.forEach { selector, picker in
-            UIView.animateWithDuration(ThemeManager.animationDuration) {
-                self.performThemePicker(selector, picker: picker)
-            }
+            UIView.animate(withDuration: ThemeManager.animationDuration, animations: {
+                self.performThemePicker(selector: selector, picker: picker)
+            }) 
         }
     }
     

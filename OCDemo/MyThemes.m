@@ -14,7 +14,7 @@
 @implementation MyThemes
 
 + (void)switchTo:(MyThemesType)type {
-    [ThemeManager setTheme:type];
+    [ThemeManager setThemeWithIndex:type];
 }
 
 + (void)switchToNext {
